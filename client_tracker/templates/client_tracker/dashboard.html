@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,26 +7,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Client & Project Tracker</title>
+
+    <link rel="stylesheet" href="{% static 'client_tracker/style.css' %}">
 </head>
 
 <body>
-    <h1>Client & Project Tracker</h1>
 
-    <h2>Dashboard</h2>
+    <div class="container">
 
-    <p>Welcome to the Client & Project Tracker.</p>
+        <header>
+            <h1>Client & Project Tracker</h1>
+        </header>
 
-    <h3>Clients</h3>
+        <main class="card">
 
-<ul>
-    {% for client in clients %}
-    <li>
-        {{ client.name }} -
-        {{ client.project }} -
-        {{ client.status }}
-    </li>
-    {% endfor %}
-</ul>
+            <h2>Dashboard</h2>
+
+            <p>Manage your clients and projects in one place.</p>
+
+            <p>
+                <a class="button" href="{% url 'add_client' %}">
+                    + Add Client & Project
+                </a>
+            </p>
+
+            <h3>Clients & Projects</h3>
+
+            <ul class="client-list">
+                {% for client in clients %}
+                <li>
+                    <a href="{% url 'client_detail' client.id %}">
+                        {{ client.name }}
+                    </a>
+                    <br>
+                    {{ client.project }} &nbsp; | &nbsp;
+                    {{ client.status }}
+                </li>
+                {% empty %}
+                <li>No clients have been added yet.</li>
+                {% endfor %}
+            </ul>
+
+        </main>
+
+        <footer>
+            Client & Project Tracker
+        </footer>
+
+    </div>
+
 </body>
 
 </html>

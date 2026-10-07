@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Client</title>
+    <title>Update Client</title>
 
     <link rel="stylesheet" href="{% static 'client_tracker/style.css' %}">
 </head>
@@ -21,25 +21,22 @@
 
         <main class="card">
 
-            <h2>Add Client & Project</h2>
+            <h2>Update Project Status</h2>
 
-            <p>Enter the information for your new client and project.</p>
+            <div class="details">
+                <p><strong>Client Name:</strong> {{ client.name }}</p>
+                <p><strong>Project:</strong> {{ client.project }}</p>
+                <p><strong>Current Status:</strong> {{ client.status }}</p>
+            </div>
 
             <form method="POST">
                 {% csrf_token %}
 
                 <p>
-                    <label for="name"><strong>Client Name:</strong></label><br>
-                    <input type="text" id="name" name="name" required>
-                </p>
+                    <label for="status">
+                        <strong>New Status:</strong>
+                    </label><br>
 
-                <p>
-                    <label for="project"><strong>Project:</strong></label><br>
-                    <input type="text" id="project" name="project" required>
-                </p>
-
-                <p>
-                    <label for="status"><strong>Status:</strong></label><br>
                     <select id="status" name="status">
                         <option value="Not Started">Not Started</option>
                         <option value="In Progress">In Progress</option>
@@ -47,11 +44,13 @@
                     </select>
                 </p>
 
-                <button type="submit">Add Client & Project</button>
+                <button type="submit">Update Status</button>
             </form>
 
             <p>
-                <a class="secondary-link" href="/">← Back to Dashboard</a>
+                <a class="secondary-link" href="{% url 'client_detail' client.id %}">
+                    ← Cancel and Return to Client
+                </a>
             </p>
 
         </main>

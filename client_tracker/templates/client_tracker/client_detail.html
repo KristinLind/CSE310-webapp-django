@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Details</title>
+
+    <link rel="stylesheet" href="{% static 'client_tracker/style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>Client & Project Tracker</h1>
+        </header>
+
+        <main class="card">
+
+            <h2>Client Details</h2>
+
+            <div class="details">
+                <p><strong>Client Name:</strong> {{ client.name }}</p>
+                <p><strong>Project:</strong> {{ client.project }}</p>
+                <p><strong>Status:</strong> {{ client.status }}</p>
+            </div>
+
+            <p>
+                <a class="button" href="{% url 'update_client' client.id %}">
+                    Update Status
+                </a>
+            </p>
+
+            <p>
+                <a class="secondary-link" href="{% url 'delete_client' client.id %}">
+                    Delete Client
+                </a>
+            </p>
+
+            <p>
+                <a class="secondary-link" href="/">
+                    ← Back to Dashboard
+                </a>
+            </p>
+
+        </main>
+
+        <footer>
+            Client & Project Tracker
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

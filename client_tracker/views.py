@@ -60,3 +60,87 @@ def add_client(request):
 
     return render(request, "client_tracker/add_client.html")
 
+def client_detail(request, client_id):
+    """Display one client/project from Firestore."""
+
+    doc_ref = db.collection("clients").document(client_id)
+    doc = doc_ref.get()
+
+    if doc.exists:
+        data = doc.to_dict()
+
+        client = {
+            "id": doc.id,
+            "name": data.get("client_name"),
+            "project": data.get("project_name"),
+            "status": data.get("status"),
+        }
+
+        return render(
+            request,
+            "client_tracker/client_detail.html",
+            {"client": client}
+        )
+
+    return redirect("dashboard")
+
+def update_client(request, client_id):
+    """Update the status of an existing client/project."""
+
+    doc_ref = db.collection("clients").document(client_id)
+    doc = doc_ref.get()
+
+    if not doc.exists:
+        return redirect("dashboard")
+
+    if request.method == "POST":
+        new_status = request.POST.get("status")
+
+        doc_ref.update({
+            "status": new_status
+        })
+
+        return redirect("client_detail", client_id=client_id)
+
+    data = doc.to_dict()
+
+    client = {
+        "id": doc.id,
+        "name": data.get("client_name"),
+        "project": data.get("project_name"),
+        "status": data.get("status"),
+    }
+
+    return render(
+        request,
+        "client_tracker/update_client.html",
+        {"client": client}
+    )
+
+def delete_client(request, client_id):
+    """Delete an existing client/project from Firestore."""
+
+    doc_ref = db.collection("clients").document(client_id)
+    doc = doc_ref.get()
+
+    if not doc.exists:
+        return redirect("dashboard")
+
+    if request.method == "POST":
+        doc_ref.delete()
+        return redirect("dashboard")
+
+    data = doc.to_dict()
+
+    client = {
+        "id": doc.id,
+        "name": data.get("client_name"),
+        "project": data.get("project_name"),
+        "status": data.get("status"),
+    }
+
+    return render(
+        request,
+        "client_tracker/delete_client.html",
+        {"client": client}
+    )    

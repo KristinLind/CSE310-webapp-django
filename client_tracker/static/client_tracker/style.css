@@ -1,0 +1,143 @@
+/* Client & Project Tracker */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4efe6;
+    color: #243447;
+}
+
+/* Main page container */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+/* Header */
+header {
+    background-color: #274c77;
+    color: white;
+    padding: 28px 35px;
+    border-radius: 12px 12px 0 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+/* White content card */
+.card {
+    background-color: white;
+    padding: 30px 35px;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+}
+
+h2 {
+    color: #274c77;
+    margin-top: 0;
+}
+
+h3 {
+    color: #496f95;
+}
+
+/* Client list */
+.client-list {
+    list-style: none;
+    padding: 0;
+}
+
+.client-list li {
+    background-color: #f8f5ef;
+    border-left: 5px solid #6096ba;
+    margin-bottom: 12px;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.client-list a {
+    color: #274c77;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.client-list a:hover {
+    text-decoration: underline;
+}
+
+/* Links and buttons */
+.button,
+button {
+    display: inline-block;
+    background-color: #274c77;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.button:hover,
+button:hover {
+    background-color: #496f95;
+}
+
+.secondary-link {
+    color: #274c77;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.secondary-link:hover {
+    text-decoration: underline;
+}
+
+/* Forms */
+input,
+select {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #b8b8b8;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+label {
+    color: #243447;
+}
+
+/* Client details */
+.details {
+    background-color: #f8f5ef;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+/* Delete button */
+.delete-button {
+    background-color: #8a4f4f;
+}
+
+.delete-button:hover {
+    background-color: #6f3e3e;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    color: #6b7280;
+    margin-top: 20px;
+    font-size: 14px;
+}
