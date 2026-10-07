@@ -14,7 +14,7 @@ To run it on your own computer:
 
 I wanted to build this to see how Django organizes a web app into URLs, views, and templates, and to bring my last two modules together into one working app that feels like a real tool instead of a menu in the terminal.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://us06web.zoom.us/rec/play/wdCACAZjA5H8iXnvypI-gfi_rKQMJDQrqA8ChIHjhhwXbF4qTQh4vUbKXGxZwW3OpDbUmcKEWM8ucWSC.s3a89hkoCeW21OFR?accessLevel=meeting&canPlayFromShare=true&from=share_recording_detail&continueMode=true&oldStyle=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fus06web.zoom.us%2Frec%2Fshare%2FWJ2pWR2An5lsu5VPmnLKtTLLj1Q9j4WvDgv9RhjSIN-j2bsKuHWPLKvA6hsmkUat.6vXsR6EYMYNfhHAB)
 
 # Web Pages
 
