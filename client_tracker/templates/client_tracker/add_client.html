@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Client</title>
+</head>
+
+<body>
+    <h1>Add Client & Project</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <p>
+            <label for="name">Client Name:</label><br>
+            <input type="text" id="name" name="name" required>
+        </p>
+
+        <p>
+            <label for="project">Project:</label><br>
+            <input type="text" id="project" name="project" required>
+        </p>
+
+        <p>
+            <label for="status">Status:</label><br>
+            <select id="status" name="status">
+                <option value="Planning">Planning</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </p>
+
+        <button type="submit">Add Client</button>
+    </form>
+
+    <p>
+        <a href="/">Back to Dashboard</a>
+    </p>
+</body>
+
+</html>
